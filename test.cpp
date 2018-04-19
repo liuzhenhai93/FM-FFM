@@ -83,18 +83,13 @@ void testfm()
 	int epoch = 30;
 	string trpath = "D:\\xgboost\\demo\\data\\agaricus.txt.train";
 	string tepath = "D:\\xgboost\\demo\\data\\agaricus.txt.test";
-	//ifstream myfile("G:\\C++ project\\Read\\hello.txt");
-	//if (!myfile.is_open())
-	//{
-	//	cout << "未成功打开文件" << endl;
-	//}
 	Model mymodel(128);
 	double loss = 0.0;
 	int count = 0;
 	int rights = 0;
 	try {
 		for (int epo = 0; epo<epoch; epo++)
-		{
+		{   // train
 			oneEpoch(true, trpath, mymodel, rights, count, loss);
 			if (epo % 5 == 3) {
 				cout << "train-" << epo<<":"<<((double)rights) / count << endl;
