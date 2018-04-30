@@ -19,9 +19,6 @@ n_features =shape[1]
 k=2
 
 #placeholder
-#x_indices=tf.placeholder(tf.int64,[None,2])
-#x_values=tf.placeholder(tf.float32,[None])
-#x_shape=tf.placeholder(tf.int64,[2])
 x = tf.sparse_placeholder(tf.float64)
 y = tf.placeholder(tf.float64, [None, 1])
 
@@ -30,7 +27,6 @@ V = tf.Variable(tf.zeros([n_features, k],dtype=tf.float64),dtype=tf.float64,name
 b = tf.Variable(tf.zeros([1],dtype=tf.float64),dtype=tf.float64,name="b")
 w = tf.Variable(tf.random_normal((n_features,1),dtype=tf.float64),dtype=tf.float64,name="w")
 #model logic
-#x=tf.SparseTensor(x_indices,x_values,x_shape)
 vx=tf.sparse_tensor_dense_matmul(x,V)
 vx_sq=tf.multiply(vx,vx)
 xx=tf.square(x)
